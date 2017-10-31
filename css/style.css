@@ -177,7 +177,7 @@ h6 {
 /*-----------------------------------------------------------------------------------*/
 header {
   background: url(../img/header.png);
-  min-height: 155px;
+  min-height: 75px;
 }
 header #logo {
   margin-top: 42px;

@@ -29,16 +29,89 @@
 		
 			<!-- HEADER -->
 			<header class="cf">
-				<center><h1>Team Lightning</h1></br>
-				<h1>Bullseye Weather Station</h1></center>				
+				<center><h1>Team Lightning - Bullseye Weather Station</h1></center>				
 			</header>
 			<!-- ENDS HEADER -->
+			
+			<!-- NAV -->
+			<nav class="cf">
+				<ul id="nav" class="sf-menu">
+					<li class="current-menu-item"><a href="index.html">Home</a></li>
+					<li><a href="location.html">Location</a></li>
+					<li><a href="weatherstation.html">Picture of Weather Station</a></li>
+					<li><a href="contact.html">Report a Bug</a></li>					
+				</ul>
+			</nav>
 			
 			<!-- MAIN -->
 			<div id="main" class="cf">
 			
-			<center><h2>Weather Station Location</h2></center>
-			<center><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d225470.28811088495!2d-82.59436773087073!3d27.994714746410466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2b782b3b9d1e1%3A0xa75f1389af96b463!2sTampa%2C+FL!5e0!3m2!1sen!2sus!4v1509313351950" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe></center>
+			<center><h2>Temperature</h2></center>
+			  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <div id="chart_div"></div>
+      <center><html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Sales', 'Expenses'],
+          ['2004',  1000,      400],
+          ['2005',  1170,      460],
+          ['2006',  660,       1120],
+          ['2007',  1030,      540]
+        ]);
+
+        var options = {
+          title: 'Company Performance',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="curve_chart" style="width: 900px; height: 500px"></div>
+  </body>
+</html><html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Sales', 'Expenses'],
+          ['2004',  1000,      400],
+          ['2005',  1170,      460],
+          ['2006',  660,       1120],
+          ['2007',  1030,      540]
+        ]);
+
+        var options = {
+          title: 'Company Performance',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="curve_chart" style="width: 900px; height: 500px"></div>
+  </body>
+</html></center>
 			
 			<!-- FOOTER -->
 			<div class="footer-divider"></div>
