@@ -1,8 +1,6 @@
 <?php 
     // Start MySQL Connection
-    include('../../Downloads/RaspberryPi-Weather-Log/connect.php'); 
-
-
+    include('connect.php'); 
 ?>
 
 <html>
@@ -34,7 +32,6 @@
     <body>
         <h1>Raspberry Pi Weather Log</h1>
 
-
     <table border="0" cellspacing="0" cellpadding="4">
       <tr>
             <td class="table_titles">ID</td>
@@ -42,6 +39,8 @@
             <td class="table_titles">Temperature</td>
             <td class="table_titles">Humidity</td>
             <td class="table_titles">Pressure</td>
+            <td class="table_titles">eCO2</td>
+            <td class="table_titles">tVOC</td>
           </tr>
 <?php
 
@@ -72,6 +71,8 @@
         echo '   <td'.$css_class.'>'.$row["temperature"].'</td>';
         echo '   <td'.$css_class.'>'.$row["humidity"].'</td>';
         echo '   <td'.$css_class.'>'.$row["pressure"].'</td>';
+		echo '   <td'.$css_class.'>'.$row["eCO2"].'</td>';
+		echo '   <td'.$css_class.'>'.$row["tVOC"].'</td>';
         echo '</tr>';
     }
 ?>
