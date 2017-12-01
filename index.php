@@ -17,24 +17,25 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		
 	</head>
 	<body class="is-loading">
 
 		<!-- Wrapper -->
 			<div id="wrapper" class="fade-in">
-
 				<!-- Intro -->
 					<div id="intro">
 						<h1>Team<br />
 						Lightning</h1>
 						<p>Project: Bullseye Weather Station</p>
+						<ul class="actions">
+							<li><a href="#header" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
 					</div>
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li class="active"><a href="index.html">Home</a></li>
+							<li class="active"><a href="index.php">Home</a></li>
 							<li><a href="location.html">Location</a></li>
 							<li><a href="documentation.html">Documentation</a></li>
 							<li><a href="old-data.php">Archive</a></li>
@@ -75,36 +76,32 @@
   							echo "Failed to connect to MySQL: " . mysqli_connect_error();
   						}
 		
-			$sql="SELECT * FROM WeatherData2";
-			$result=mysqli_query($con,$sql);
+						$sql="SELECT * FROM WeatherData2";
+						$result=mysqli_query($con,$sql);
 							
-			echo "<table border='1'>
-			<tr>
-				<th>Date</th>
-				<th>Time</th>
-				<th>Temperature</th>
-			</tr>";
-			$index = 0;
-			while($index <5))
-			{
-				echo "<tr>";
-				echo "<td>" . $row['Date'] . "</td>";
-				echo "<td>" . $row['Time'] . "</td>";
-				echo "<td>" . $row['Temperature'] . "</td>";
-				echo "<td>" . $row['Humidity'] . "</td>";
-				echo "<td>" . $row['Pressure'] . "</td>";
-				echo "<td>" . $row['eCO2'] . "</td>";
-				echo "</tr>";
-				index++;
-			}
+						echo "<table border='1'>
+						<tr>
+							<th>Date</th>
+							<th>Time</th>
+							<th>Temperature</th>
+						</tr>";
+						$index = 0;
+									
+						while(($row=mysqli_fetch_array($result,MYSQLI_ASSOC)) && ($index < 5))
+						{	
+							echo "<tr>";
+								echo "<td>" . $row['Date'] . "</td>";
+								echo "<td>" . $row['Time'] . "</td>";
+								echo "<td>" . $row['Temperature'] . "</td>";
+							echo "</tr>";
+							index++;
+						}
 			echo "</table>";
 	
 	mysqli_free_result($result);
 	mysqli_close($con);
 ?>
-									
-									
-									<p>Donec eget ex magna.</p>
+									<h3>Past five temperature readings.</h3>
 								</article>
 								<article>
 									<header>
@@ -129,7 +126,7 @@
 
 				<!-- Copyright -->
 					<div id="copyright">
-						<ul><li>Thomas Renz, Brooke Harris, and Kevin Ly </li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+						<strong><ul><li>Thomas Renz, Brooke Harris, and Kevin Ly </li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul></strong>
 					</div>
 			</div>
 
