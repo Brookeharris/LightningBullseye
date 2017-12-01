@@ -6,39 +6,30 @@
 -->
 <html>
 	<head>
-		<script type="text/javascript">
-  		google.charts.load('current', {packages: ['corechart']});
-  		google.charts.setOnLoadCallback(drawChart);
-  		...
-		</script>
-		<title>Team Lightning - Project Bullseye</title>
-		<meta name="description" content="Team Lighting Fall 2017 USF IT Senior Project">
+		<title>Archive of All Data</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		
 	</head>
 	<body class="is-loading">
 
 		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+			<div id="wrapper">
 
-				<!-- Intro -->
-					<div id="intro">
-						<h1>Team<br />
-						Lightning</h1>
-						<p>Project: Bullseye Weather Station</p>
-					</div>
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Bullseye Weather Station</a>
+					</header>
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li class="active"><a href="index.html">Home</a></li>
+							<li><a href="index.html">Home</a></li>
 							<li><a href="location.html">Location</a></li>
 							<li><a href="documentation.html">Documentation</a></li>
-							<li><a href="old-data.php">Archive</a></li>
-							<li><a href="bug.html">Report a Bug</a></li>
+							<li class="active"><a href="old-data.php">Archive</a></li>
+							<li><a href="bug.html">Bug Reports</a></li>
 						</ul>
 						<ul class="icons">
 							<li><a href="https://github.com/Brookeharris/LightningBullseye" class="icon fa-github"><span class="label">GitHub</span></a></li>
@@ -48,26 +39,10 @@
 				<!-- Main -->
 					<div id="main">
 
-						<!-- Featured Post -->
-							<article class="post featured">
-								<header class="major">
-									<span class="date">Fall 2017 - IT Senior Project</span>
-									<h2>Weather Station<br />
-									Bullseye</h2>
-									<p>The Bullseye Weather Station provides data of weather in the zip code of 33617. The data included is temperature, pressure in MB, the humidity in %, and air quality.</p>
-								</header>
-								<ul class="actions">
-									<li><a href="documentation.html" class="button big">Documentation</a></li>
-								</ul>
-							</article>
-
-						<!-- Graphs -->
-								<article>
-									<header>
-										<h2>Temperature</h2>
-									</header>
-									
-									<?php
+						<!-- Post -->
+							<section class="post">
+							<p>This is an archive of all the data that the Bullseye Weather Station has collected to date, listed from oldest to newest.</p>
+						<?php
 						$con=mysqli_connect("47.199.233.120","team","lightning","Weather");
 						// Check connection
 						if (mysqli_connect_errno())
@@ -83,9 +58,12 @@
 				<th>Date</th>
 				<th>Time</th>
 				<th>Temperature</th>
+				<th>Humidity</th>
+				<th>Pressure</th>
+				<th>eCO2</th>
 			</tr>";
-			$index = 0;
-			while($index <5))
+					
+			while($row=mysqli_fetch_array($result,MYSQLI_ASSOC))
 			{
 				echo "<tr>";
 				echo "<td>" . $row['Date'] . "</td>";
@@ -95,35 +73,12 @@
 				echo "<td>" . $row['Pressure'] . "</td>";
 				echo "<td>" . $row['eCO2'] . "</td>";
 				echo "</tr>";
-				index++;
 			}
 			echo "</table>";
 	
 	mysqli_free_result($result);
 	mysqli_close($con);
 ?>
-									
-									
-									<p>Donec eget ex magna.</p>
-								</article>
-								<article>
-									<header>
-										<h2>Pressure in MB</h2>
-									</header>
-									<p>Donec eget ex magna.</p>
-								</article>
-								<article>
-									<header>
-										<h2>Humidity in %</h2>
-									</header>
-									<p>Donec eget ex magna.</p>
-								</article>
-								<article>
-									<header>
-										<h2>Air Quality</h2>
-									</header>
-									<p>Donec eget ex magna.</p>
-								</article>
 							</section>
 					</div>
 
