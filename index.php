@@ -6,13 +6,7 @@
 -->
 <html>
 	<head>
-		<script type="text/javascript">
-  		google.charts.load('current', {packages: ['corechart']});
-  		google.charts.setOnLoadCallback(drawChart);
-  		...
-		</script>
 		<title>Team Lightning - Project Bullseye</title>
-		<meta name="description" content="Team Lighting Fall 2017 USF IT Senior Project">
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -27,9 +21,6 @@
 						<h1>Team<br />
 						Lightning</h1>
 						<p>Project: Bullseye Weather Station</p>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
 					</div>
 
 				<!-- Nav -->
@@ -42,7 +33,7 @@
 							<li><a href="bug.html">Report a Bug</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href="https://github.com/Brookeharris/LightningBullseye" class="icon fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://github.com/Brookeharris/LightningBullseye" class="icon fa-github" target="_blank"><span class="label">GitHub</span></a></li>
 						</ul>
 					</nav>
 
@@ -69,14 +60,14 @@
 									</header>
 									
 									<?php
-						$con=mysqli_connect("47.199.233.120","team","lightning","Weather");
+						$con=mysqli_connect("47.199.233.120","team","lightning","WordpressDB");
 						// Check connection
 						if (mysqli_connect_errno())
   						{
   							echo "Failed to connect to MySQL: " . mysqli_connect_error();
   						}
 		
-						$sql="SELECT * FROM WeatherData2";
+						$sql="SELECT * FROM WeatherData";
 						$result=mysqli_query($con,$sql);
 							
 						echo "<table border='1'>

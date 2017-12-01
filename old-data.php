@@ -38,22 +38,24 @@
 
 				<!-- Main -->
 					<div id="main">
-					<h2>Archived Weather Data</h2>
+
 						<!-- Post -->
-						<section class="post">
-							<p>This is an archive of all the data that the Bullseye Weather Station has collected to date, listed from oldest to newest.</p>
+							<section class="post">
+					<h1>Archived Weather Data</h1>
+						<!-- Post -->
+						<p>This is an archive of all the data that the Bullseye Weather Station has collected to date, listed from oldest to newest.</p>
 						<?php
-						$con=mysqli_connect("47.199.233.120","team","lightning","Weather");
+						$con=mysqli_connect("47.199.233.120","team","lightning","WordpressDB");
 							
 						if (mysqli_connect_errno())
   						{
   							echo "Failed to connect to MySQL: " . mysqli_connect_error();
   						}
 		
-						$sql="SELECT * FROM WeatherData2";
+						$sql="SELECT * FROM WeatherData";
 						$result=mysqli_query($con,$sql);
 
-						echo "<table border='1'>
+						echo "<table border='3'>
 						<tr>
 							<th>Date (MM/DD/YYYY)</th>
 							<th>Time (HH:MM:SS)</th>
@@ -79,7 +81,7 @@
 	mysqli_free_result($result);
 	mysqli_close($con);
 ?>
-							</section>
+						</section>
 					</div>
 
 				<!-- Copyright -->
