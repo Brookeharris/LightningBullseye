@@ -57,8 +57,8 @@
 
 						echo "<table border='3'>
 						<tr>
-							<th>Date (MM/DD/YYYY)</th>
-							<th>Time (HH:MM:SS)</th>
+							<th>Date (MM/DD/YY)</th>
+							<th>Time (HH:MM)</th>
 				<th>Temperature (Fahrenheit)</th>
 				<th>Humidity (%)</th>
 				<th>Pressure (MB)</th>

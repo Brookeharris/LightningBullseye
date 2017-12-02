@@ -67,17 +67,16 @@
 										echo "Failed to connect to MySQL: " . mysqli_connect_error();
 									}
 		
-									$sql="SELECT * FROM WeatherData ORDER BY Date desc LIMIT 5";
+									$sql="SELECT * FROM WeatherData ORDER BY Date desc, Time desc LIMIT 5";
 									
 									$result=mysqli_query($con,$sql);
 								
 									echo "<table border='3'>
 									<tr>
-										<th>Date (MM/DD/YYYY)</th>
+										<th>Date (MM/DD/YY)</th>
 										<th>Time (HH:MM)</th>
 										<th>Temperature (Fahrenheit)</th>
 									</tr>";
-									//$index = 0;
 									
 						while(($row=mysqli_fetch_array($result,MYSQLI_ASSOC)))
 						{	
@@ -86,19 +85,18 @@
 								echo "<td>" . $row['Time'] . "</td>";
 								echo "<td>" . $row['Temperature'] . "</td>";
 							echo "</tr>";
-							//index++;
 						}
 						echo "</table>";
 	
 						?>
-									<center><h3>Past five temperature readings</h3></center>
+									<center><h4>Past five temperature readings</h4></center>
 								</article>
 								<article>
 									<header>
 										<h2>Pressure in MB</h2>
 									</header>
 									<?php
-									$sql="SELECT * FROM WeatherData ORDER BY Date desc LIMIT 5";
+									$sql="SELECT * FROM WeatherData ORDER BY Date desc, Time desc LIMIT 5";
 									
 									$result=mysqli_query($con,$sql);
 									
@@ -120,6 +118,7 @@
 							//index++;
 						}
 						echo "</table>";?>
+								<center><h4>Past five pressure readings</h4></center>
 									
 								</article>
 								<article>
@@ -127,7 +126,7 @@
 										<h2>Humidity in %</h2>
 									</header>
 									<?php
-									$sql="SELECT * FROM WeatherData ORDER BY Date desc LIMIT 5";
+									$sql="SELECT * FROM WeatherData ORDER BY Date desc, Time desc LIMIT 5";
 									
 									$result=mysqli_query($con,$sql);
 									
@@ -149,13 +148,14 @@
 							//index++;
 						}
 						echo "</table>";?>
+							<center><h4>Past five humidity readings</h4></center>
 								</article>
 								<article>
 									<header>
 										<h2>Air Quality (PPM)</h2>
 									</header>
 									<?php
-									$sql="SELECT * FROM WeatherData ORDER BY Date desc LIMIT 5";
+									$sql="SELECT * FROM WeatherData ORDER BY Date desc, Time desc LIMIT 5";
 									
 									$result=mysqli_query($con,$sql);
 									echo "<table border='3'>
@@ -178,6 +178,7 @@
 						echo "</table>";
 									mysqli_free_result($result);
 					mysqli_close($con);?>
+							<center><h4>Past five air quality readings</h4></center>
 								</article>
 							</section>
 					</div>
