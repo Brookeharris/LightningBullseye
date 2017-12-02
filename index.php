@@ -21,7 +21,8 @@
 						<h1>Team<br />
 						Lightning</h1>
 						<p>Project: Bullseye Weather Station</p>
-					</div>
+						
+				</div>
 
 				<!-- Nav -->
 					<nav id="nav">
@@ -43,7 +44,6 @@
 						<!-- Featured Post -->
 							<article class="post featured">
 								<header class="major">
-									<span class="date">Fall 2017 - IT Senior Project</span>
 									<h2>Weather Station<br />
 									Bullseye</h2>
 									<p>The Bullseye Weather Station provides data of weather in the zip code of 33617. The data included is temperature, pressure in MB, the humidity in %, and air quality.</p>
@@ -60,60 +60,128 @@
 									</header>
 									
 									<?php
-						$con=mysqli_connect("47.199.233.120","team","lightning","WordpressDB");
-						// Check connection
-						if (mysqli_connect_errno())
-  						{
-  							echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  						}
-		
-						$sql="SELECT * FROM WeatherData";
-						$result=mysqli_query($con,$sql);
-							
-						echo "<table border='1'>
-						<tr>
-							<th>Date</th>
-							<th>Time</th>
-							<th>Temperature</th>
-						</tr>";
-						$index = 0;
+									$con=mysqli_connect("47.199.233.120","team","lightning","WordpressDB");
 									
-						while(($row=mysqli_fetch_array($result,MYSQLI_ASSOC)) && ($index < 5))
+									if (mysqli_connect_errno())
+  									{
+										echo "Failed to connect to MySQL: " . mysqli_connect_error();
+									}
+		
+									$sql="SELECT * FROM WeatherData ORDER BY Date desc LIMIT 5";
+									
+									$result=mysqli_query($con,$sql);
+								
+									echo "<table border='3'>
+									<tr>
+										<th>Date (MM/DD/YYYY)</th>
+										<th>Time (HH:MM)</th>
+										<th>Temperature (Fahrenheit)</th>
+									</tr>";
+									//$index = 0;
+									
+						while(($row=mysqli_fetch_array($result,MYSQLI_ASSOC)))
 						{	
 							echo "<tr>";
 								echo "<td>" . $row['Date'] . "</td>";
 								echo "<td>" . $row['Time'] . "</td>";
 								echo "<td>" . $row['Temperature'] . "</td>";
 							echo "</tr>";
-							index++;
+							//index++;
 						}
-			echo "</table>";
+						echo "</table>";
 	
-	mysqli_free_result($result);
-	mysqli_close($con);
-?>
-									<h3>Past five temperature readings.</h3>
+						?>
+									<center><h3>Past five temperature readings</h3></center>
 								</article>
 								<article>
 									<header>
 										<h2>Pressure in MB</h2>
 									</header>
-									<p>Donec eget ex magna.</p>
+									<?php
+									$sql="SELECT * FROM WeatherData ORDER BY Date desc LIMIT 5";
+									
+									$result=mysqli_query($con,$sql);
+									
+									echo "<table border='3'>
+									<tr>
+										<th>Date (MM/DD/YYYY)</th>
+										<th>Time (HH:MM:SS)</th>
+										<th>Pressure (MB)</th>
+									</tr>";
+									//$index = 0;
+									
+						while(($row=mysqli_fetch_array($result,MYSQLI_ASSOC)))
+						{	
+							echo "<tr>";
+								echo "<td>" . $row['Date'] . "</td>";
+								echo "<td>" . $row['Time'] . "</td>";
+								echo "<td>" . $row['Pressure'] . "</td>";
+							echo "</tr>";
+							//index++;
+						}
+						echo "</table>";?>
+									
 								</article>
 								<article>
 									<header>
 										<h2>Humidity in %</h2>
 									</header>
-									<p>Donec eget ex magna.</p>
+									<?php
+									$sql="SELECT * FROM WeatherData ORDER BY Date desc LIMIT 5";
+									
+									$result=mysqli_query($con,$sql);
+									
+									echo "<table border='3'>
+									<tr>
+										<th>Date (MM/DD/YYYY)</th>
+										<th>Time (HH:MM:SS)</th>
+										<th>Humidity (%)</th>
+									</tr>";
+									//$index = 0;
+									
+						while(($row=mysqli_fetch_array($result,MYSQLI_ASSOC)))
+						{	
+							echo "<tr>";
+								echo "<td>" . $row['Date'] . "</td>";
+								echo "<td>" . $row['Time'] . "</td>";
+								echo "<td>" . $row['Humidity'] . "</td>";
+							echo "</tr>";
+							//index++;
+						}
+						echo "</table>";?>
 								</article>
 								<article>
 									<header>
-										<h2>Air Quality</h2>
+										<h2>Air Quality (PPM)</h2>
 									</header>
-									<p>Donec eget ex magna.</p>
+									<?php
+									$sql="SELECT * FROM WeatherData ORDER BY Date desc LIMIT 5";
+									
+									$result=mysqli_query($con,$sql);
+									echo "<table border='3'>
+									<tr>
+										<th>Date (MM/DD/YYYY)</th>
+										<th>Time (HH:MM:SS)</th>
+										<th>eCO2 (PPM)</th>
+									</tr>";
+									//$index = 0;
+									
+						while(($row=mysqli_fetch_array($result,MYSQLI_ASSOC)))
+						{	
+							echo "<tr>";
+								echo "<td>" . $row['Date'] . "</td>";
+								echo "<td>" . $row['Time'] . "</td>";
+								echo "<td>" . $row['eCO2'] . "</td>";
+							echo "</tr>";
+							//index++;
+						}
+						echo "</table>";
+									mysqli_free_result($result);
+					mysqli_close($con);?>
 								</article>
 							</section>
 					</div>
+					
 
 				<!-- Copyright -->
 					<div id="copyright">
