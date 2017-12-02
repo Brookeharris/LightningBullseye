@@ -136,7 +136,6 @@
 										<th>Time (HH:MM:SS)</th>
 										<th>Humidity (%)</th>
 									</tr>";
-									//$index = 0;
 									
 						while(($row=mysqli_fetch_array($result,MYSQLI_ASSOC)))
 						{	
@@ -175,10 +174,40 @@
 							echo "</tr>";
 							//index++;
 						}
+						echo "</table>";?>
+									
+							<center><h4>Past five air quality readings</h4></center>
+								</article>
+								
+								<article>
+									<header>
+										<h2>Total Number of Volatile Organic Compounds</h2>
+									</header>
+									<?php
+									$sql="SELECT * FROM WeatherData ORDER BY Date desc, Time desc LIMIT 5";
+									
+									$result=mysqli_query($con,$sql);
+									
+									echo "<table border='3'>
+									<tr>
+										<th>Date (MM/DD/YYYY)</th>
+										<th>Time (HH:MM:SS)</th>
+										<th>Total # of Volatile Organic Compounds</th>
+									</tr>";
+									
+						while(($row=mysqli_fetch_array($result,MYSQLI_ASSOC)))
+						{	
+							echo "<tr>";
+								echo "<td>" . $row['Date'] . "</td>";
+								echo "<td>" . $row['Time'] . "</td>";
+								echo "<td>" . $row['tVOC'] . "</td>";
+							echo "</tr>";
+							//index++;
+						}
 						echo "</table>";
 									mysqli_free_result($result);
 					mysqli_close($con);?>
-							<center><h4>Past five air quality readings</h4></center>
+							<center><h4>Past five volatile organic compound readings</h4></center>
 								</article>
 							</section>
 					</div>

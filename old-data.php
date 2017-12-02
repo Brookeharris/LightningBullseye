@@ -63,6 +63,7 @@
 				<th>Humidity (%)</th>
 				<th>Pressure (MB)</th>
 				<th>eCO2 (PPM)</th>
+				<th># of Volatile Organic Compounds</th>
 			</tr>";
 					
 			while($row=mysqli_fetch_array($result,MYSQLI_ASSOC))
@@ -74,6 +75,7 @@
 				echo "<td>" . $row['Humidity'] . "</td>";
 				echo "<td>" . $row['Pressure'] . "</td>";
 				echo "<td>" . $row['eCO2'] . "</td>";
+				echo "<td>" . $row['tVOC'] . "</td>";
 				echo "</tr>";
 			}
 			echo "</table>";
