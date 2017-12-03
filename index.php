@@ -8,9 +8,13 @@
 	<head>
 		<title>Team Lightning - Project Bullseye</title>
 		<meta charset="utf-8" />
+		<meta description="USF Fall 2017 - Team Lightning IT Project: Bullseye Weather Station"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script src="jquery.min.js" type="text/javascript"></script>
+		<script src="highcharts.js" type="text/javascript"></script>
+		<script src="jquery.highchartTable.js" type="text/javascript"></script>
 	</head>
 	<body class="is-loading">
 
@@ -89,6 +93,7 @@
 						echo "</table>";
 	
 						?>
+						
 									<center><h4>Past five temperature readings</h4></center>
 								</article>
 								<article>
@@ -103,7 +108,7 @@
 									echo "<table border='3'>
 									<tr>
 										<th>Date (MM/DD/YYYY)</th>
-										<th>Time (HH:MM:SS)</th>
+										<th>Time (HH:MM)</th>
 										<th>Pressure (MB)</th>
 									</tr>";
 									//$index = 0;
@@ -133,7 +138,7 @@
 									echo "<table border='3'>
 									<tr>
 										<th>Date (MM/DD/YYYY)</th>
-										<th>Time (HH:MM:SS)</th>
+										<th>Time (HH:MM)</th>
 										<th>Humidity (%)</th>
 									</tr>";
 									
@@ -160,7 +165,7 @@
 									echo "<table border='3'>
 									<tr>
 										<th>Date (MM/DD/YYYY)</th>
-										<th>Time (HH:MM:SS)</th>
+										<th>Time (HH:MM)</th>
 										<th>eCO2 (PPM)</th>
 									</tr>";
 									//$index = 0;
@@ -191,7 +196,7 @@
 									echo "<table border='3'>
 									<tr>
 										<th>Date (MM/DD/YYYY)</th>
-										<th>Time (HH:MM:SS)</th>
+										<th>Time (HH:MM)</th>
 										<th>Total # of Volatile Organic Compounds</th>
 									</tr>";
 									
